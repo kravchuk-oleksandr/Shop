@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Магазин</title>
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="components/Header/header.css">
+    <link rel="stylesheet" href="components/Products/products.css">
+    <link rel="stylesheet" href="components/Sort/sort.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy9tm5KMIJKoXW1i2GGqF+8PqJnAqz2dCi" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+    <!-- Constants -->
+    <script src="utils/localStorageUtil.js"></script>
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="header-container">
+            <img id="header-logo" src="img/logo2.png" alt="logo">
+            <span id="header-price">Загальна сума: <span id="total-price"></span>₴</span>
+        </div>
+    </div> 
+    <script src="components/Header/header.js"></script>
+
+    <!-- Sort buttons -->
+    <div id="sort">
+        <div id="sort-container">
+            <button id="sort-button" onclick="sortProducts('asc')">Сортувати за ціною (зростанням)</button>
+            <button id="sort-button" onclick="sortProducts('desc')">Сортувати за ціною (спаданням)</button>
+        </div>
+    </div>
+    <script src="components/Sort/sort.js"></script>
+
+    <!-- Products -->
+    <div id="products"></div>    
+    <link rel="stylesheet" href="components/Products/products.css">
+    <script src="components/Products/products.js"></script>
+
+    <!-- Add new product / Edit -->
+    <div id="form-modal">
+        <div id="form-container">
+            <h2 id="form-title">Додати новий товар</h2>
+            <label for="brandInput">Бренд:</label>
+            <input type="text" id="brandInput" required><br>
+            <label for="modelInput">Модель:</label>
+            <input type="text" id="modelInput" required><br>
+            <label for="imgInput">Зображення:</label>
+            <input type="file" id="imgInput" accept="image/*" required><br>
+            <label for="priceInput">Ціна:</label>
+            <input type="number" id="priceInput" required><br>
+            <button id="saveChangesBtn" onclick="addProduct()">Додати товар</button>
+            <button class="modal-button" onclick="closeFormModal()">Закрити</button>
+        </div>
+    </div>
+
+    <!-- Add button -->
+    <button id="add-product-btn" onclick="openFormModal()">Додати товар</button>
+</body>
+</html>
